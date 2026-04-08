@@ -1,0 +1,128 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+
+    <!-- LOGO -->
+    <div class="logo" (click)="scrollTo('home')">
+      <div class="logo-icon">❤</div>
+      <span class="logo-text">SmartCare</span>
+    </div>
+
+
+    <!-- MENU -->
+    <ul class="nav-links" [class.open]="menuOpen">
+
+      <!-- ✅ SCROLL LINKS -->
+      <li>
+        <a (click)="scrollTo('home')">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a (click)="scrollTo('services')">
+          Our Services
+        </a>
+      </li>
+
+      <li>
+        <a (click)="scrollTo('departments')">
+          Departments
+        </a>
+      </li>
+
+      <li>
+        <a (click)="scrollTo('hospitals')">
+          Hospitals
+        </a>
+      </li>
+
+      <li>
+        <a (click)="scrollTo('health-tips')">
+          Tips
+        </a>
+      </li>
+
+      <li>
+        <a (click)="scrollTo('health-assistant')">
+          Health Assistant
+        </a>
+      </li>
+
+
+
+    </ul>
+
+
+
+
+    <!-- ✅ USER PROFILE (UNCHANGED FUNCTIONALITY) -->
+    <div class="user-section">
+
+      <!-- HAMBURGER -->
+      <div class="hamburger" (click)="toggleMenu()">
+        <span [class.active]="menuOpen"></span>
+        <span [class.active]="menuOpen"></span>
+        <span [class.active]="menuOpen"></span>
+      </div>
+
+      <!-- Avatar -->
+      <div class="avatar" (click)="toggleDropdown()">
+        {{ userInitial }}
+      </div>
+
+      <!-- Dropdown -->
+      <div class="dropdown" *ngIf="dropdownOpen">
+
+        <div class="dropdown-header">
+          <div class="avatar big">
+            {{ userInitial }}
+          </div>
+
+          <div>
+            <p class="name">{{ user.fullName }}</p>
+            <p class="email">
+              <i class="icon">📧</i> {{ user.email }}
+            </p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ✅ NEW BUTTONS -->
+        <button class="menu-btn primary" (click)="openUpdateProfile()" [disabled]="isOpening">
+          ✏️ Update Profile
+        </button>
+
+        <button class="menu-btn delete" (click)="deleteAccount()">
+          🗑️ Delete Account
+        </button>
+
+        <div class="divider"></div>
+
+        <button class="menu-btn logout" (click)="logout()">
+          🚪 Logout
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ✅ MOVE HERE (OUTSIDE NAV) -->
+<!-- ✅ KEEP THIS OUTSIDE NAV -->
+
+<!-- 🔥 DELETE CONFIRM MODAL -->
+<div class="delete-backdrop" *ngIf="showDeleteModal">
+  <div class="delete-modal">
+
+    <h3>Delete Account</h3>
+    <p>Are you sure you want to delete your account?</p>
+
+    <div class="delete-actions">
+      <button class="btn-cancel" (click)="cancelDelete()">Cancel</button>
+      <button class="btn-delete" (click)="confirmDelete()">Delete</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<section class="hero" id="home">
+
+  <div class="hero-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-left">
+
+      <h1>
+        Find trusted doctors & hospitals
+        <span>near you instantly</span>
+      </h1>
+
+      <p>
+        SmartCare helps you discover the right medical care using smart search and location-based results.
+      </p>
+
+      <!-- SEARCH BOX -->
+      <div class="search-box">
+
+        <input
+          type="text"
+          [(ngModel)]="searchQuery"
+          placeholder="Search doctor, department, hospital"
+          (keyup.enter)="performSearch()"
+        />
+
+        <button (click)="performSearch()">
+          Search
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-right">
+
+      <img
+        src="https://png.pngtree.com/png-clipart/20240115/original/pngtree-doctors-for-heart-disease-day-3d-doctors-for-world-heart-disease-png-image_14119835.png"
+        alt="Doctor"
+      />
+
+    </div>
+
+  </div>
+
+</section>

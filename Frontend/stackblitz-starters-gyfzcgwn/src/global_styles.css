@@ -1,0 +1,294 @@
+ /* Add application styles & imports to this file ! */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     overflow-x: hidden;
+ }
+
+ html {
+     scroll-behavior: smooth;
+ }
+
+ button {
+     font-family: inherit;
+ }
+
+ /* Hide Google Translate banner */
+
+ .goog-te-banner-frame.skiptranslate {
+     display: none !important;
+ }
+
+ body {
+     top: 0px !important;
+ }
+
+ .skiptranslate iframe {
+     display: none !important;
+ }
+
+ /* Hide Google translate dropdown */
+ #google_translate_element {
+     display: none !important;
+ }
+
+ /* Hide Google top banner */
+ .goog-te-banner-frame.skiptranslate {
+     display: none !important;
+ }
+
+ body {
+     top: 0px !important;
+ }
+
+ /* 🔥 REMOVE GOOGLE TRANSLATE POPUP COMPLETELY */
+
+ /* Hide tooltip popup */
+ .goog-te-balloon-frame {
+     display: none !important;
+ }
+
+ /* Hide translate dropdown iframe */
+ .goog-te-menu-frame {
+     display: none !important;
+ }
+
+ /* Hide any translate iframe */
+ iframe.goog-te-banner-frame,
+ iframe.goog-te-menu-frame,
+ iframe.goog-te-balloon-frame {
+     display: none !important;
+ }
+
+ /* hide popup */
+ .goog-te-balloon-frame,
+ .VIpgJd-ZVi9od-ORHb-OEVmcd,
+ .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+ .goog-tooltip {
+     display: none !important;
+ }
+
+ /* Prevent body shifting */
+ body {
+     top: 0px !important;
+     position: static !important;
+ }
+
+ /* Hide Google translate highlight */
+ .goog-text-highlight {
+     background: none !important;
+     box-shadow: none !important;
+ }
+
+ /* Hide "Original text" popup */
+ .VIpgJd-ZVi9od-ORHb-OEVmcd {
+     display: none !important;
+ }
+
+ /* Hide translate tooltip */
+ .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+     display: none !important;
+ }
+
+ /* Hide google overlay container */
+ .goog-tooltip,
+ .goog-tooltip:hover {
+     display: none !important;
+ }
+
+ /* Hide "Powered by Google Translate" text */
+ .goog-logo-link {
+     display: none !important;
+ }
+
+ .goog-te-gadget {
+     font-size: 0px !important;
+ }
+
+ /* 🔥 ULTRA FORCE REMOVE GOOGLE ELEMENTS */
+
+ [class*="VIpgJd"] {
+     display: none !important;
+ }
+
+ iframe[src*="translate"] {
+     display: none !important;
+ }
+
+ .goog-te-balloon-frame {
+     display: none !important;
+ }
+
+ /* BACKDROP */
+ .custom-backdrop {
+     position: fixed;
+     inset: 0;
+     background: rgba(0, 0, 0, 0.55);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 20px;
+     z-index: 9999;
+ }
+
+ /* MODAL CARD (WIDER + NO SCROLL) */
+ .modal-card {
+     background: #ffffff;
+
+     width: 100%;
+     max-width: 750px;
+     /* 🔥 increased width */
+
+     border-radius: 18px;
+     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+
+     padding: 26px 28px;
+
+     animation: modalFade 0.3s ease;
+
+     /* ❌ REMOVE SCROLL */
+     overflow: hidden;
+ }
+
+ /* TITLE */
+ .modal-card h2 {
+     text-align: center;
+     margin-bottom: 20px;
+     font-weight: 700;
+     font-size: 24px;
+     color: #111827;
+ }
+
+ /* GRID LAYOUT (KEY FIX) */
+ .form-grid {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     /* 2 column */
+     gap: 14px 16px;
+ }
+
+ /* INPUT */
+ .input-box {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .input-box label {
+     font-size: 13px;
+     font-weight: 600;
+     color: #6b7280;
+     margin-bottom: 4px;
+ }
+
+ .input-box input {
+     padding: 10px;
+     border-radius: 10px;
+     border: 1px solid #d1d5db;
+     font-size: 14px;
+     transition: 0.25s;
+ }
+
+ /* FOCUS EFFECT */
+ .input-box input:focus {
+     border-color: #14b8a6;
+     box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+     outline: none;
+ }
+
+ /* BUTTONS */
+ .modal-actions {
+     display: flex;
+     gap: 14px;
+     margin-top: 22px;
+ }
+
+ .btn {
+     flex: 1;
+     padding: 12px;
+     border-radius: 10px;
+     border: none;
+     font-weight: 600;
+     cursor: pointer;
+     transition: 0.2s;
+ }
+
+ /* UPDATE */
+ .btn.update {
+     background: #14b8a6;
+     color: white;
+ }
+
+ .btn.update:hover {
+     background: #0f9f94;
+ }
+
+ /* CANCEL */
+ .btn.cancel {
+     background: #ef4444;
+     color: white;
+ }
+
+ .btn.cancel:hover {
+     background: #dc2626;
+ }
+
+ /* ANIMATION */
+ @keyframes modalFade {
+     from {
+         opacity: 0;
+         transform: translateY(-15px) scale(0.96);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0) scale(1);
+     }
+ }
+
+ /* TOAST */
+ .toast {
+     position: fixed;
+     bottom: 25px;
+     right: 25px;
+     background: #111827;
+     color: white;
+     padding: 14px 18px;
+     border-radius: 10px;
+     font-size: 14px;
+     opacity: 0;
+     transform: translateY(20px);
+     transition: 0.3s ease;
+     z-index: 99999;
+ }
+
+ .toast.show {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ /* SUCCESS */
+ .toast.success {
+     background: #16a34a;
+ }
+
+ /* ERROR */
+ .toast.error {
+     background: #dc2626;
+ }
+
+ .goog-te-banner-frame,
+ .goog-logo-link,
+ .goog-te-gadget span {
+     display: none !important;
+ }
+
+ body {
+     top: 0 !important;
+ }

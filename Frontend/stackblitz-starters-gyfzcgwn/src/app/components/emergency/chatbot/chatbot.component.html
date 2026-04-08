@@ -1,0 +1,35 @@
+<div class="chatbot-page">
+
+  <div class="chat-container">
+
+    <div class="chat-header">
+      🤖 AI Health Assistant
+    </div>
+
+    <div class="chat-body">
+
+      <div *ngFor="let msg of messages"
+           class="message"
+           [ngClass]="msg.type">
+
+        {{ msg.text }}
+
+      </div>
+
+    </div>
+
+    <div class="chat-footer">
+
+      <input
+        [(ngModel)]="userInput"
+        placeholder="Type your symptoms..."
+        (keyup.enter)="sendMessage()"
+      >
+
+      <button (click)="sendMessage()">Send</button>
+
+    </div>
+
+  </div>
+
+</div>

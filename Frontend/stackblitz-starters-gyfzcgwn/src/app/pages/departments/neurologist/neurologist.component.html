@@ -1,0 +1,75 @@
+<section class="doctor-section">
+
+<!-- HEADER INLINE -->
+
+<div class="header-row">
+
+  <h2 class="section-title">
+    Neurologist Specialists
+  </h2>
+
+  <input
+  type="text"
+  [(ngModel)]="searchText"
+  (input)="onSearch()"
+  placeholder="Search doctor, degree, hospital..."
+  class="search-input"
+/>
+
+</div>
+
+
+<!-- GRID -->
+
+<div class="doctor-grid">
+
+  <div
+    #doctorCard
+    class="doctor-card"
+    *ngFor="let doctor of filteredDoctors; let i = index"
+    [class.left]="i % 2 === 0"
+    [class.right]="i % 2 === 1"
+  >
+
+    <!-- IMAGE -->
+
+    <div class="doctor-image-wrapper">
+
+      <img [src]="doctor.image">
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="doctor-info">
+
+      <h3>{{ doctor.name }}</h3>
+
+      <p class="degree">
+        ({{ doctor.degree }})
+      </p>
+
+      <p>
+        🏥 {{ doctor.hospital }}
+      </p>
+
+      <p>
+        ⭐ {{ doctor.experience }} Years Experience
+      </p>
+
+      <p>
+        🧠 {{ doctor.specialization }}
+      </p>
+
+      <button class="btn">
+        Book Appointment
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>

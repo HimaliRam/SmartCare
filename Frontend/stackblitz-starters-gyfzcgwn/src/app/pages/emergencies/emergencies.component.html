@@ -1,0 +1,102 @@
+<div class="emergency-container">
+
+  <div class="page-title">
+    <h1>24/7 Emergency Assistance</h1>
+    <p>Fast, reliable medical response whenever you need it most.</p>
+  </div>
+
+  <!-- ================= SPLIT SECTION ================= -->
+  <div class="emergency-split">
+
+    <!-- LEFT PANEL (Now visually on right) -->
+    <div class="left-panel">
+      <h1>24/7 Emergency Services</h1>
+      <p class="subtitle">
+        Immediate medical response when every second matters.
+      </p>
+      <div class="helpline-box">
+        <h3>Emergency Helpline</h3>
+        <p class="number">📞 108 / 102</p>
+      </div>
+      <button class="sos-btn" (click)="triggerSOS()">
+        🚨 Activate SOS Alert
+      </button>
+    </div>
+
+    <!-- RIGHT PANEL (Now visually on left) -->
+    <div class="right-panel">
+
+      <!-- Form Content -->
+      <ng-container *ngIf="!requestSubmitted">
+        <h2>Request Emergency Ambulance</h2>
+        <form (ngSubmit)="submitRequest()" class="form-grid">
+
+          <input type="text" placeholder="Full Name" [(ngModel)]="emergencyData.name" name="name" required>
+          <input type="tel" placeholder="Phone Number" [(ngModel)]="emergencyData.phone" name="phone" required>
+          <input type="text" placeholder="Current Location" [(ngModel)]="emergencyData.location" name="location"
+            required>
+
+          <select [(ngModel)]="emergencyData.type" name="type" required>
+            <option value="">Select Emergency Type</option>
+            <option>Accident</option>
+            <option>Heart Attack</option>
+            <option>Pregnancy</option>
+            <option>Stroke</option>
+            <option>Other</option>
+          </select>
+
+          <select [(ngModel)]="emergencyData.bloodGroup" name="bloodGroup">
+            <option value="">Blood Group (Optional)</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+          </select>
+
+          <button type="submit" class="submit-btn">
+            🚑 Dispatch Ambulance
+          </button>
+
+        </form>
+      </ng-container>
+
+      <!-- Success Message in same panel -->
+      <ng-container *ngIf="requestSubmitted">
+        <div class="success-box-panel">
+          <h2>🚑 Ambulance Dispatched Successfully!</h2>
+          <p>Emergency team is on the way to your location.</p>
+          <button (click)="resetForm()">Send Another Request</button>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+
+  <!-- ================= INSTRUCTIONS ================= -->
+  <div class="instructions-section">
+    <h2>Emergency First Aid Instructions</h2>
+    <div class="instruction-cards">
+      <div class="card">
+        <h3>❤️ Heart Attack</h3>
+        <p>Keep patient calm. Loosen tight clothes. Call emergency immediately.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 Stroke</h3>
+        <p>Check FAST: Face drooping, Arm weakness, Speech difficulty.</p>
+      </div>
+      <div class="card">
+        <h3>🩸 Heavy Bleeding</h3>
+        <p>Apply firm pressure using clean cloth. Elevate injured area.</p>
+      </div>
+      <div class="card">
+        <h3>🔥 Burns</h3>
+        <p>Cool burn under running water for 10 minutes. Do not apply oil.</p>
+      </div>
+    </div>
+  </div>
+
+</div>

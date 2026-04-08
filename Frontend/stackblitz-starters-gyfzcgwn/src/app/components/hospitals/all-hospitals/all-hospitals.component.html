@@ -1,0 +1,53 @@
+<section class="all-hospitals">
+
+    <h2 class="section-title">
+        All Nearby Hospitals
+    </h2>
+
+    <div class="hospitals-grid">
+
+        <div class="hospital-card"
+             *ngFor="let hospital of hospitals">
+
+            <!-- Name -->
+            <h3 class="hospital-name">
+                {{ hospital.name }}
+            </h3>
+
+            <!-- Info -->
+            <div class="hospital-info">
+                <span>
+                    📍 {{
+                    hospital.distanceKm !== undefined
+                        ? (hospital.distanceKm | number:'1.1-1') + ' km'
+                        : 'N/A'
+                    }}
+                </span>
+
+                <span>
+                    ⭐ {{
+                    hospital.rating && hospital.rating > 0
+                        ? hospital.rating
+                        : 'N/A'
+                    }}
+                </span>
+            </div>
+
+            <!-- Footer -->
+            <div class="hospital-footer">
+                <span *ngIf="hospital.emergency"
+                      class="emergency-badge">
+                    🚑 Emergency Available
+                </span>
+
+                <button class="view-btn"
+                        (click)="viewDetails(hospital)">
+                    View Details
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

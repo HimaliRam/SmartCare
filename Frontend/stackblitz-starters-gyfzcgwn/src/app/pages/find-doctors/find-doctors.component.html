@@ -1,0 +1,155 @@
+<div class="doctor-container">
+
+    <!-- Header -->
+    <div class="doctor-header">
+        <h1>Find & Book Your Specialist</h1>
+
+        <div class="search-box">
+            <input type="text"
+                   placeholder="Search by doctor name or specialization..."
+                   [(ngModel)]="searchText"
+                   (input)="onSearchChange()" />
+        </div>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="loading-text">
+        Loading doctors...
+    </div>
+
+    <!-- Doctor Cards -->
+    <div class="doctor-grid">
+
+        <div class="doctor-card" *ngFor="let doctor of doctors">
+
+           
+            <div class="doctor-body">
+
+                <div class="doctor-name">
+                    {{doctor.name}}
+                </div>
+
+                <div class="doctor-degree">
+                    ({{doctor.degree}})
+                </div>
+
+                <div class="doctor-meta">
+                    <div class="meta-left">
+                        🏥 {{doctor.hospital}} <br>
+                        🩺 {{doctor.experience}} Years Experience <br>
+                        📍 {{doctor.distance | number:'1.1-1'}} km away
+                    </div>
+
+                    <div class="meta-right">
+
+
+                        <div class="specialization">
+                            {{doctor.specialization}}
+                        </div>
+
+                        <div class="rating">
+                            ⭐ {{doctor.rating}}
+                        </div>
+                    </div>
+                </div>
+                <button class="book-btn"
+                        [ngClass]="{'disabled': !doctor.available}"
+                        (click)="doctor.available && openAppointmentModal(doctor)">
+                    {{doctor.available ? 'Book Appointment' : 'Not Available'}}
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="!loading && doctors.length === 0" class="no-result">
+        No doctors found.
+    </div>
+    <!-- ================= APPOINTMENT MODAL ================= -->
+
+    <div class="modal fade" id="appointmentModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content custom-modal">
+
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">
+                        Book Appointment with {{selectedDoctor?.name}}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- ERROR MESSAGE -->
+                    <div *ngIf="errorMessage" class="alert alert-danger custom-alert">
+                        {{errorMessage}}
+                    </div>
+
+                    <!-- SUCCESS MESSAGE -->
+                    <div *ngIf="successMessage" class="alert alert-success custom-alert">
+                        <span style="margin-right:6px;">✔</span>
+                        {{successMessage}}
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Patient Full Name *</label>
+                        <input type="text" class="form-control"
+                               [(ngModel)]="appointment.patientName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Gmail Address *</label>
+                        <input type="email" class="form-control"
+                               placeholder="example@gmail.com"
+                               [(ngModel)]="appointment.email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Mobile Number *</label>
+                        <input type="text" class="form-control"
+                               maxlength="10"
+                               [(ngModel)]="appointment.phone">
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Appointment Date *</label>
+                            <input type="date" class="form-control"
+                                   [(ngModel)]="appointment.date">
+                        </div>
+
+                        <div class="col">
+                            <label>Preferred Time *</label>
+                            <input type="time" class="form-control"
+                                   [(ngModel)]="appointment.time">
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <label>Describe Your Symptoms *</label>
+                        <textarea class="form-control"
+                                  rows="3"
+                                  placeholder="Briefly describe your health concern..."
+                                  [(ngModel)]="appointment.symptoms">
+    </textarea>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button class="btn cancel-btn"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+
+                    <button class="btn confirm-btn"
+                            (click)="submitAppointment()">
+                        Confirm Booking
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

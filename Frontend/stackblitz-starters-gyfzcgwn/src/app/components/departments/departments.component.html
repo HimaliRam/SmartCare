@@ -1,0 +1,33 @@
+<section class="departments" id="departments">
+  <div class="departments-container">
+    <h2 class="section-title">Doctor Departments</h2>
+    <p class="section-subtitle">Find specialist doctors easily</p>
+
+    <div class="departments-wrapper">
+
+      <!-- LEFT BUTTON -->
+      <button class="nav-arrow left" (click)="movePrev()">❮</button>
+
+      <!-- SCROLL AREA -->
+      <div class="departments-scroll" #scrollContainer>
+        <div class="slider-track">
+          <div class="manual-wrapper" #manualWrapper>
+            <div class="department-card" *ngFor="let dept of departments" [routerLink]="['/department', dept.route]"
+              [queryParams]="{ color: dept.color }" routerLinkActive="active-card">
+
+              <div class="dept-icon-wrapper" [style.background]="dept.color">
+                <span class="dept-icon">{{ dept.icon }}</span>
+              </div>
+
+              <h3 class="dept-name">{{ dept.name }}</h3>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT BUTTON -->
+      <button class="nav-arrow right" (click)="moveNext()">❯</button>
+
+    </div>
+  </div>
+</section>

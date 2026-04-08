@@ -1,0 +1,292 @@
+/* ================= MAIN PAGE BACKGROUND ================= */
+
+.language-page {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f4f8fb, #eaf3f9);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= MAIN CARD ================= */
+
+.language-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 45px 50px;
+  max-width: 720px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  animation: fadeSlide 0.6s ease;
+}
+
+/* ================= TITLE ================= */
+
+.language-card h1 {
+  text-align: center;
+  color: #0f766e;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.description {
+  text-align: center;
+  color: #334155;
+  font-size: 15px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* ================= LANGUAGE BUTTON GROUP ================= */
+
+.language-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+/* ================= LANGUAGE BUTTON ================= */
+
+.language-buttons button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 25px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ACTIVE BUTTON */
+
+.language-buttons button.active {
+  background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+  color: white;
+  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.4);
+}
+
+/* HOVER EFFECT */
+
+.language-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= FEATURES SECTION ================= */
+
+.features-section {
+  margin-top: 10px;
+}
+
+.features-section h3 {
+  margin-bottom: 15px;
+  color: #0f172a;
+  font-size: 20px;
+}
+
+/* ================= FEATURE CARD ================= */
+
+.feature-card {
+  background: linear-gradient(135deg, #e0f3ef, #a0dbdf);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-left: 5px solid #14b8a6;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+
+.feature-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ICON */
+
+.feature-icon {
+  font-size: 18px;
+}
+
+/* TEXT */
+
+.feature-text {
+  font-size: 15px;
+  color: #0f172a;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
+
+/* -------- LARGE LAPTOP (1200px ↓) -------- */
+@media (max-width: 1200px) {
+
+  .language-card {
+    padding: 40px 35px;
+  }
+
+  .language-card h1 {
+    font-size: 28px;
+  }
+}
+
+/* -------- TABLET (992px ↓) -------- */
+@media (max-width: 992px) {
+
+  .language-page {
+    padding: 40px 15px;
+  }
+
+  .language-card {
+    padding: 35px 25px;
+  }
+
+  .language-card h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .language-buttons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .language-buttons button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .features-section h3 {
+    font-size: 18px;
+  }
+}
+
+/* -------- MOBILE (768px ↓) -------- */
+@media (max-width: 768px) {
+
+  .language-page {
+    padding: 30px 10px;
+  }
+
+  .language-card {
+    padding: 25px 18px;
+    border-radius: 16px;
+  }
+
+  .language-card h1 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  /* Buttons stack nicely */
+  .language-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .language-buttons button {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+
+  .feature-card {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+
+  .feature-text {
+    font-size: 13px;
+  }
+}
+
+/* -------- SMALL MOBILE (480px ↓) -------- */
+@media (max-width: 480px) {
+
+  .language-card {
+    padding: 20px 14px;
+  }
+
+  .language-card h1 {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .language-buttons button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .features-section h3 {
+    font-size: 16px;
+  }
+
+  .feature-text {
+    font-size: 12px;
+  }
+}
+
+/* -------- LARGE SCREEN (1400px ↑) -------- */
+@media (min-width: 1400px) {
+  .language-card {
+    max-width: 800px;
+  }
+}

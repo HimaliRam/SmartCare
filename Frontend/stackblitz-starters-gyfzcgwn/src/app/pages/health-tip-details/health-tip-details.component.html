@@ -1,0 +1,43 @@
+<section class="details-page">
+
+  <div class="details-container">
+
+    <!-- ICON -->
+    <div class="icon-box">
+      {{ tip?.icon }}
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="title">
+      {{ tip?.title }}
+    </h1>
+
+    <!-- DESCRIPTION -->
+    <p class="description">
+      {{ tip?.content }}
+    </p>
+
+    <!-- BENEFITS -->
+    <div class="benefits-section">
+
+      <h3>Benefits:</h3>
+
+      <ul class="benefits-list">
+
+        <li *ngFor="let benefit of tip?.benefits">
+          <span class="check">✔</span>
+          {{ benefit }}
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- BACK BUTTON -->
+    <button class="back-btn" (click)="goBack()">
+      ← Back to Health Tips
+    </button>
+
+  </div>
+
+</section>

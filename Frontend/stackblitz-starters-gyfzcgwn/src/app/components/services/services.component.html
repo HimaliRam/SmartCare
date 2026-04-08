@@ -1,0 +1,24 @@
+<section id="services" class="services">
+  <div class="services-container">
+    <h2 class="section-title">Our Key Services</h2>
+    <p class="section-subtitle">Everything you need for better healthcare</p>
+
+    <div class="services-grid">
+      <div
+      *ngFor="let service of services; let i = index"
+      class="service-card"
+      [routerLink]="service.route"
+      style="cursor:pointer"
+      [style.animation-delay]="(i * 0.1) + 's'">
+    
+      <div class="service-icon">{{ service.icon }}</div>
+      <h3 class="service-title">{{ service.title }}</h3>
+      <p class="service-description">{{ service.description }}</p>
+      <span class="service-link">View More →</span>
+    
+    </div>
+    
+    
+    </div>
+  </div>
+</section>

@@ -1,0 +1,130 @@
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <!-- LEFT SIDE -->
+        <div class="login-left">
+            <h1>HELLO <span>!</span></h1>
+            <p>Please enter your details<br />to continue</p>
+
+            <img src="https://prolific-home-video.b-cdn.net/medical-animation/faq_11zon.webp" alt="Doctor" />
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="login-right">
+
+            <h2><span>SMART</span>CARE</h2>
+
+            <!-- LOGIN FORM -->
+            <form #loginForm="ngForm" novalidate>
+
+                <label>Username or E-mail</label>
+                <input type="email" name="email" required email [(ngModel)]="email" (input)="clearError()"
+                    #emailRef="ngModel" placeholder="abc@gmail.com" />
+
+                <p class="error" *ngIf="emailRef.invalid && emailRef.touched">
+                    <span *ngIf="emailRef.errors?.['required']">Email is required</span>
+                    <span *ngIf="emailRef.errors?.['email']">Enter valid email</span>
+                </p>
+
+                <label>Password</label>
+                <input type="password" name="password" required minlength="4" [(ngModel)]="password"
+                    (input)="clearError()" #passRef="ngModel" placeholder="********" />
+
+                <p class="error" *ngIf="passRef.invalid && passRef.touched">
+                    <span *ngIf="passRef.errors?.['required']">Password is required</span>
+                    <span *ngIf="passRef.errors?.['minlength']">
+                        Minimum 4 characters required
+                    </span>
+                </p>
+
+
+                <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+                <button type="button" (click)="login()">
+                    Log In
+                </button>
+
+            </form>
+
+            <a class="forgot" (click)="openForgotModal()">Forgot Password?</a>
+
+            <p class="signup-text">
+                Don’t have an account?
+                <span (click)="goToSignup()">Sign up</span>
+            </p>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- FORGOT PASSWORD MODAL -->
+        <!-- ========================= -->
+
+        <div class="modal-overlay" *ngIf="showForgotModal">
+            <div class="forgot-modal">
+
+                <h2>Reset Password</h2>
+
+                <!-- STEP 1: EMAIL -->
+                <div *ngIf="!otpSent && !passwordReset">
+
+                    <label>Email Address</label>
+                    <input type="email" name="forgotEmail" required email [(ngModel)]="forgotEmail"
+                        #forgotEmailRef="ngModel" placeholder="Enter your email" />
+
+                    <p class="error" *ngIf="forgotEmailRef.invalid && forgotEmailRef.touched">
+                        <span *ngIf="forgotEmailRef.errors?.['required']">
+                            Email is required
+                        </span>
+                        <span *ngIf="forgotEmailRef.errors?.['email']">
+                            Enter valid email format
+                        </span>
+                    </p>
+
+                    <p class="error" *ngIf="otpError">
+                        {{ otpError }}
+                    </p>
+
+                    <button type="button" class="modal-btn" (click)="sendOtp()">
+                        Send OTP
+                    </button>
+
+                </div>
+
+                <!-- STEP 2: OTP -->
+                <div *ngIf="otpSent && !passwordReset">
+
+                    <label>Enter OTP</label>
+                    <input type="text" maxlength="6" [(ngModel)]="otp" name="otp" placeholder="Enter OTP" />
+
+                    <p class="error" *ngIf="otpError">{{ otpError }}</p>
+
+                    <button class="modal-btn" (click)="verifyOtp()">
+                        Verify OTP
+                    </button>
+
+                </div>
+
+                <!-- STEP 3: NEW PASSWORD -->
+                <div *ngIf="passwordReset">
+
+                    <label>New Password</label>
+                    <input type="password" minlength="4" required [(ngModel)]="newPassword" name="newPassword"
+                        #newPassRef="ngModel" placeholder="New Password" />
+
+                    <p class="error" *ngIf="newPassRef.invalid && newPassRef.touched">
+                        Minimum 4 characters required
+                    </p>
+
+                    <button class="modal-btn" [disabled]="newPassRef.invalid" (click)="resetPassword()">
+                        Reset Password
+                    </button>
+
+                </div>
+
+                <span class="close-btn" (click)="closeForgotModal()">✖</span>
+
+            </div>
+        </div>
+    </div>
+</div>

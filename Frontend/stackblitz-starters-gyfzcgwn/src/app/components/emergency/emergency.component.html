@@ -1,0 +1,64 @@
+<div class="emergency-wrapper">
+
+  <!-- HERO SECTION -->
+  <div class="emergency-header">
+    <div class="icon-box">🚑</div>
+    <h1>Emergency Services</h1>
+    <p>Immediate help & nearby hospitals in one place</p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="emergency-content">
+
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+
+      <h3>⚠ Important Emergency Numbers</h3>
+
+      <div class="numbers-grid">
+        <div class="number-card">
+          <span>Ambulance</span>
+          <h2>102</h2>
+        </div>
+
+        <div class="number-card">
+          <span>Police</span>
+          <h2>100</h2>
+        </div>
+
+        <div class="number-card">
+          <span>Fire</span>
+          <h2>101</h2>
+        </div>
+
+        <div class="number-card">
+          <span>Women Helpline</span>
+          <h2>1091</h2>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-panel">
+
+      <h3>📍 Find Nearby Emergency Hospitals</h3>
+
+      <p>
+        Enable your location to instantly discover
+        the nearest 24/7 emergency hospitals around you.
+      </p>
+
+      <button (click)="enableLocation()" class="location-btn">
+        Enable Location
+      </button>
+
+      <div *ngIf="locationMessage" class="location-status">
+        {{ locationMessage }}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

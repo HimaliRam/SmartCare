@@ -1,0 +1,64 @@
+<app-navbar *ngIf="showNavbar"></app-navbar>
+
+<router-outlet></router-outlet>
+
+<!-- ✅ GLOBAL MODAL -->
+<div class="custom-backdrop" *ngIf="showModal">
+    <div class="modal-card">
+
+        <h2>Update Profile</h2>
+
+        <div class="form-grid">
+
+            <div class="input-box">
+                <label>Full Name</label>
+                <input [(ngModel)]="editUser.fullName">
+            </div>
+
+            <div class="input-box">
+                <label>Email</label>
+                <input [(ngModel)]="editUser.email">
+            </div>
+
+            <div class="input-box">
+                <label>Mobile</label>
+                <input [(ngModel)]="editUser.mobile">
+            </div>
+
+            <div class="input-box">
+                <label>Age</label>
+                <input type="number" [(ngModel)]="editUser.age">
+            </div>
+
+
+
+            <div class="input-box">
+                <label>Height (cm)</label>
+                <input type="number" [(ngModel)]="editUser.height">
+            </div>
+
+            <div class="input-box">
+                <label>Weight (kg)</label>
+                <input type="number" [(ngModel)]="editUser.weight">
+            </div>
+
+            <div class="input-box">
+                <label>Blood Group</label>
+                <input [(ngModel)]="editUser.bloodGroup">
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn update" (click)="updateProfile()">Update</button>
+            <button class="btn cancel" (click)="closeModal()">Cancel</button>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="toast" *ngIf="showToast" [ngClass]="[toastType, showToast ? 'show' : '']">
+    {{ toastMessage }}
+</div>

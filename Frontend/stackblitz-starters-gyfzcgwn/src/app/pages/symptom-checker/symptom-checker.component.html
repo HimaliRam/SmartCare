@@ -1,0 +1,51 @@
+<div class="symptom-container">
+
+  <h1 class="title">AI Symptom Checker</h1>
+  <p class="subtitle">
+    Select multiple symptoms and get intelligent health analysis
+  </p>
+
+  <div class="symptom-grid">
+    <div class="symptom-card" *ngFor="let symptom of symptomsList" [class.selected]="selectedSymptoms.includes(symptom)"
+      (click)="toggleSymptom(symptom)">
+      {{ symptom }}
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button class="check-btn" (click)="checkSymptoms()">
+      Analyze Symptoms
+    </button>
+
+    <button class="reset-btn" (click)="reset()">
+      Reset
+    </button>
+  </div>
+
+  <!-- RESULT SECTION -->
+  <div *ngIf="result" class="result-box" [ngClass]="{
+      'low-box': result.severity === 'low',
+      'medium-box': result.severity === 'medium',
+      'high-box': result.severity === 'high'
+    }">
+
+    <h2>{{ result.condition }}</h2>
+
+    <p class="severity">
+      Severity Level:
+      <span [ngClass]="{
+          'low-text': result.severity === 'low',
+          'medium-text': result.severity === 'medium',
+          'high-text': result.severity === 'high'
+        }">
+        {{ result.severity | uppercase }}
+      </span>
+    </p>
+
+    <p class="advice">
+      {{ result.advice }}
+    </p>
+
+  </div>
+
+</div>

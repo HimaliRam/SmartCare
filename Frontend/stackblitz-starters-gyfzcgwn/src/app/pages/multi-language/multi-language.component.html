@@ -1,0 +1,63 @@
+<div class="language-page">
+
+<div class="language-card">
+
+  <h1>{{ data.title }}</h1>
+
+  <p class="subtitle">
+    Access SmartCare in your preferred language
+  </p>
+
+  <p class="description">
+    SmartCare provides seamless healthcare access in multiple languages for better understanding and user comfort.
+  </p>
+
+
+  <!-- LANGUAGE BUTTONS -->
+
+  <div class="language-buttons">
+
+    <button
+      [class.active]="selectedLanguage === 'en'"
+      (click)="changeLanguage('en')">
+      English
+    </button>
+
+    <button
+      [class.active]="selectedLanguage === 'hi'"
+      (click)="changeLanguage('hi')">
+      हिन्दी
+    </button>
+
+    <button
+      [class.active]="selectedLanguage === 'gu'"
+      (click)="changeLanguage('gu')">
+      ગુજરાતી
+    </button>
+
+  </div>
+
+
+  <!-- FEATURES -->
+
+  <div class="features-section">
+
+    <h3>{{ data.featuresTitle }}</h3>
+
+    <div
+      *ngFor="let feature of data.features"
+      class="feature-card">
+
+      <span class="feature-icon">✔</span>
+
+      <span class="feature-text">
+        {{ feature }}
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>

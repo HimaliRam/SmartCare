@@ -1,0 +1,51 @@
+<section class="doctor-section">
+
+<div class="header-row">
+
+  <h2 class="section-title">Pediatrician Specialists</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    (input)="onSearch()"
+    placeholder="Search pediatrician..."
+    class="search-input"
+  />
+
+</div>
+
+<div class="doctor-grid">
+
+  <div
+    #doctorCard
+    class="doctor-card"
+    *ngFor="let doctor of filteredDoctors; let i=index"
+    [class.left]="i % 2 === 0"
+    [class.right]="i % 2 !== 0"
+  >
+
+    <div class="doctor-image-wrapper">
+      <img [src]="doctor.image">
+    </div>
+
+    <div class="doctor-info">
+
+      <h3>{{doctor.name}}</h3>
+
+      <p class="degree">{{doctor.degree}}</p>
+
+      <p>🏥 {{doctor.hospital}}</p>
+
+      <p>⭐ {{doctor.experience}} years experience</p>
+
+      <p>👶 {{doctor.specialization}}</p>
+
+      <button class="btn">Book Appointment</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>

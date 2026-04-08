@@ -1,0 +1,171 @@
+<div class="doctor-container">
+    <div class="department-title">
+
+        <h2>{{departmentTitle}}</h2>
+
+        <p>Find the best {{departmentTitle}} doctors near you</p>
+
+    </div>
+
+    <div class="doctor-grid">
+
+        <div class="doctor-card" *ngFor="let doctor of doctors" [style.border-left-color]="departmentColor + '60'">
+
+            <div class="doctor-body">
+
+                <div class="doctor-header">
+
+                    <div>
+
+                        <div class="doctor-name">
+                            {{doctor.name}}
+                        </div>
+
+                        <div class="doctor-degree">
+                            {{doctor.degree}}
+                        </div>
+
+                    </div>
+
+                    <div class="specialization" [style.background]="departmentColor + '20'"
+                        [style.color]="departmentColor">
+                        {{doctor.specialization}}
+                    </div>
+
+                </div>
+
+                <div class="doctor-meta">
+
+                    <div class="meta-left">
+                        <p class="hospital">
+                            &#127973; {{doctor.hospital}}
+                        </p>
+                        <p class="experience">
+                            &#9201; {{doctor.experience}} Years Experience
+                        </p>
+
+                    </div>
+
+                    <div class="meta-right">
+                        <div class="rating">
+                            &#11088; {{doctor.rating}} Rating
+                        </div>
+                    </div>
+
+                </div>
+                <button class="book-btn" [style.background]="departmentColor" (click)="openAppointmentModal(doctor)">
+                    Book Appointment
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL -->
+
+<div class="modal fade" id="appointmentModal" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content custom-modal">
+
+            <div class="modal-header border-0">
+
+                <h5 class="modal-title">
+                    Book Appointment with {{selectedDoctor?.name}}
+                </h5>
+
+                <button class="btn-close" data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <!-- ERROR -->
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                    {{errorMessage}}
+                </div>
+
+                <!-- SUCCESS -->
+                <div *ngIf="successMessage" class="alert alert-success custom-alert">
+                    &#10004; {{successMessage}}
+                </div>
+                <div class="mb-3">
+
+                    <label>Patient Name</label>
+
+                    <input type="text" class="form-control" [(ngModel)]="appointment.patientName">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Gmail</label>
+
+                    <input type="email" class="form-control" placeholder="example@gmail.com"
+                        [(ngModel)]="appointment.email">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Mobile</label>
+
+                    <input type="text" maxlength="10" class="form-control" [(ngModel)]="appointment.phone">
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <label>Date</label>
+
+                        <input type="date" class="form-control" [(ngModel)]="appointment.date">
+
+                    </div>
+
+                    <div class="col">
+
+                        <label>Time</label>
+
+                        <input type="time" class="form-control" [(ngModel)]="appointment.time">
+
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <label>Symptoms</label>
+
+                    <textarea class="form-control" rows="3" placeholder="Briefly describe your health concern..."
+                        [(ngModel)]="appointment.symptoms"></textarea>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer border-0">
+
+                <button class="btn cancel-btn" data-bs-dismiss="modal">
+                    Cancel
+                </button>
+
+                <button class="btn confirm-btn" (click)="submitAppointment()">
+                    Confirm Booking
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

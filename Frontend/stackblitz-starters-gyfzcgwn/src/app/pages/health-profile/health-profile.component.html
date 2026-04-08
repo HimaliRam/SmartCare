@@ -1,0 +1,98 @@
+<div *ngIf="loading">Loading health data...</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div class="health-container">
+
+    <!-- Page Title -->
+    <div class="page-header">
+        <h1>Smart Health Monitoring Dashboard</h1>
+        <p>Track your vital parameters and monitor your overall health status</p>
+    </div>
+
+    <!-- ================= TOP SECTION ================= -->
+    <div class="top-section">
+        <!-- LEFT 50% : 2x2 CARDS -->
+        <div class="cards-container">
+            <div class="health-card bmi">
+                <h3>BMI</h3>
+                <h2>{{ bmi }}</h2>
+                <p>{{ bmiStatus }}</p>
+            </div>
+
+            <div class="health-card heart">
+                <h3>Heart Rate</h3>
+                <h2>{{ heartRate }} bpm</h2>
+                <p>Stable</p>
+            </div>
+
+            <div class="health-card height">
+                <h3>Height</h3>
+                <h2>{{ height }} cm</h2>
+                <p>{{ getHeightStatus() }}</p>
+            </div>
+
+            <div class="health-card weight">
+                <h3>Weight</h3>
+                <h2>{{ weight }} kg</h2>
+                <p>{{ getWeightStatus() }}</p>
+            </div>
+        </div>
+
+        <!-- RIGHT 50% : CHART -->
+        <div class="chart-section">
+            <h2>Health Analytics</h2>
+
+            <div class="chart-wrapper">
+                <canvas id="healthChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= BOTTOM SECTION ================= -->
+    <div class="bottom-section">
+        <!-- 40% Health Status -->
+        <div class="status-box">
+
+            <h2 class="status-title">Overall Health Status</h2>
+
+            <!-- STATUS BADGE -->
+            <div class="status-badge" [ngClass]="healthClass">
+                {{ overallHealth }}
+            </div>
+
+            <!-- STATUS DETAILS -->
+            <div class="status-content">
+
+                <!-- WHY -->
+                <!-- WHY -->
+                <div class="status-item">
+                    <div class="status-icon why-icon"></div>
+                    <div class="status-text">
+                        {{ healthReason }}
+                    </div>
+                </div>
+
+                <div class="divider-line"></div>
+
+                <div class="status-item">
+                    <div class="status-icon improve-icon"></div>
+                    <div class="status-text">
+                        {{ healthImprovement }}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 60% Health Tips -->
+        <div class="tips-section">
+            <h2>Health Recommendations</h2>
+            <ul>
+                <li *ngFor="let tip of healthTips">
+                    {{ tip }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

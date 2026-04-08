@@ -1,0 +1,330 @@
+/* ================= FLOAT BUTTON ================= */
+.chatbot-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    z-index: 9999;
+    /* VERY IMPORTANT */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* ICON */
+.chatbot-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+/* 🔥 PULSE ANIMATION BACK */
+.chatbot-wave {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+    animation: pulse 2s infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.6);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+}
+
+/* ================= MODAL (PRO STYLE) ================= */
+.chatbot-modal {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 380px;
+    height: 520px;
+
+    border-radius: 18px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+    background: linear-gradient(135deg, #eef2ff, #f8fbff, #edf7f3);
+}
+
+/* 🔥 FORCE CHILD COMPONENT TO FIT MODAL */
+.chatbot-modal app-chatbot {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* HEADER */
+.chatbot-header {
+    background: linear-gradient(135deg, #25d4c1, #3790b7);
+    padding: 14px 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ================= CHAT CONTAINER ================= */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #f8fafc;
+}
+
+/* ================= CHAT BODY ================= */
+.chat-body {
+    flex: 1;
+    padding: 14px;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #f8fafc, #eef2f7);
+}
+
+/* HIDE SCROLLBAR */
+.chat-body::-webkit-scrollbar {
+    width: 0px;
+}
+
+.chat-body {
+    scrollbar-width: none;
+}
+
+/* ================= MESSAGE ================= */
+.message-wrapper {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+/* USER */
+.message-wrapper.user {
+    justify-content: flex-end;
+}
+
+.message-wrapper.user .bubble {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: white;
+    border-radius: 14px;
+}
+
+/* BOT */
+.message-wrapper.assistant {
+    justify-content: flex-start;
+}
+
+.message-wrapper.assistant .bubble {
+    background: #e2e8f0;
+    color: #1f2937;
+    border-radius: 14px;
+}
+
+/* COMMON BUBBLE */
+.bubble {
+    max-width: 75%;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* INPUT */
+.footer textarea {
+    flex: 1;
+    border-radius: 20px;
+    padding: 8px 12px;
+    border: 1.5px solid #d1d5db;
+    font-size: 13px;
+    resize: none;
+    min-height: 36px;
+    max-height: 80px;
+    outline: none;
+}
+
+/* FOCUS */
+.footer textarea:focus {
+    border-color: #1c777b;
+}
+
+/* BUTTON */
+.footer button {
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.chat-container {
+    height: calc(100% - 50px);
+    /* header height adjust */
+}
+
+/* 🔥 FINAL OVERRIDE FIX (DO NOT REMOVE OLD CSS) */
+
+:host {
+    height: 100% !important;
+}
+
+/* FORCE FULL HEIGHT */
+.chat-container {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* BODY SHOULD SCROLL ONLY */
+/* 🔥 FORCE HIDE SCROLLBAR (FINAL OVERRIDE) */
+
+.chat-body {
+    overflow-y: auto !important;
+    /* Firefox */
+    scrollbar-width: none !important;
+    /* IE */
+    -ms-overflow-style: none !important;
+}
+
+/* Chrome, Edge, Safari */
+.chat-body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* FOOTER ALWAYS VISIBLE */
+.footer {
+    flex-shrink: 0 !important;
+}
+
+.chat-body {
+    max-height: 100%;
+}
+
+
+.close-btn i {
+    font-size: 14px;
+    pointer-events: none;
+    /* 🔥 ensures click works */
+}
+
+.close-btn {
+    z-index: 2;
+    position: relative;
+}
+
+/* 🔥 FINAL FORCE HIDE SCROLLBAR INSIDE MODAL */
+
+/* Target inside Angular component */
+::ng-deep .chatbot-modal .chat-body {
+    overflow-y: auto !important;
+    scrollbar-width: none !important;
+    /* Firefox */
+    -ms-overflow-style: none !important;
+    /* IE */
+}
+
+/* Chrome, Edge, Safari */
+::ng-deep .chatbot-modal .chat-body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+
+
+.chatbot-button.hide {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* 🔥 INITIAL STATE (hidden) */
+.chatbot-modal {
+    transform: scale(0.7) translateY(40px);
+    opacity: 0;
+    transform-origin: bottom right;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 🔥 OPEN STATE */
+.chatbot-modal.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+
+.chatbot-modal.open {
+    transform: scale(1.02) translateY(0);
+}
+
+.chatbot-modal.open {
+    animation: popIn 0.35s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

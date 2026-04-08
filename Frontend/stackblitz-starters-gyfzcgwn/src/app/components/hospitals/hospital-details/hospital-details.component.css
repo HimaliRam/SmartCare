@@ -1,0 +1,193 @@
+.details-container {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hospital-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #0f172a;
+}
+
+/* CARD */
+.details-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.details-card:hover {
+    transform: translateY(-4px);
+}
+
+.details-card p {
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #334155;
+}
+
+.details-card strong {
+    color: #0f172a;
+}
+
+/* DESCRIPTION */
+.description {
+    color: #475569;
+    line-height: 1.7;
+}
+
+.muted {
+    color: #94a3b8;
+}
+
+/* EMERGENCY BADGE */
+.emergency {
+    margin-top: 15px;
+    display: inline-block;
+    background: #fef2f2;
+    color: #dc2626;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    margin-top: 30px;
+    padding: 12px 28px;
+    border: none;
+    background: linear-gradient(135deg, #14b8a6, #0f766e);
+    color: white;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(20, 184, 166, 0.3);
+}
+
+/* LOADING */
+.loading {
+    text-align: center;
+    padding: 120px;
+    font-size: 18px;
+}
+
+/* ============================= */
+/* RESPONSIVE DESIGN FIXED */
+/* ============================= */
+
+/* -------- GLOBAL FIX -------- */
+.details-container {
+    padding-top: 140px;
+    /* 🔥 FIX: push content below navbar */
+}
+
+/* -------- LARGE LAPTOP (1200px ↓) -------- */
+@media (max-width: 1200px) {
+
+    .details-container {
+        padding: 120px 20px 40px;
+    }
+
+    .hospital-title {
+        font-size: 32px;
+    }
+}
+
+/* -------- TABLET (992px ↓) -------- */
+@media (max-width: 992px) {
+
+    .details-container {
+        padding: 110px 18px 40px;
+    }
+
+    .hospital-title {
+        font-size: 26px;
+        line-height: 1.3;
+        /* 🔥 FIX */
+    }
+
+    .details-card {
+        padding: 22px;
+    }
+
+    .details-card p {
+        font-size: 14px;
+    }
+}
+
+/* -------- MOBILE (768px ↓) -------- */
+@media (max-width: 768px) {
+
+    .details-container {
+        padding: 100px 15px 30px;
+    }
+
+    .hospital-title {
+        font-size: 20px;
+        line-height: 1.4;
+        text-align: center;
+        word-break: break-word;
+        /* 🔥 FIX long names */
+    }
+
+    .details-card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .details-card p {
+        font-size: 13px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .back-btn {
+        width: 100%;
+    }
+}
+
+/* -------- SMALL MOBILE (480px ↓) -------- */
+@media (max-width: 480px) {
+
+    .details-container {
+        padding: 90px 12px 25px;
+    }
+
+    .hospital-title {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .details-card {
+        padding: 14px;
+    }
+
+    .details-card p {
+        font-size: 12px;
+    }
+
+    .back-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+/* -------- LARGE SCREEN -------- */
+@media (min-width: 1400px) {
+    .details-container {
+        max-width: 1000px;
+    }
+}

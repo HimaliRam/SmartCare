@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<app-hero></app-hero>
+<app-services></app-services>
+<app-departments></app-departments>
+<app-hospitals></app-hospitals>
+<app-health-tips></app-health-tips>
+<app-health-assistant></app-health-assistant>
+<app-footer></app-footer>
+
+<!-- FLOATING CHATBOT BUTTON -->
+<div class="chatbot-button" [class.hide]="isChatbotOpen" (click)="openChatbot()">
+    <div class="chatbot-icon">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+    <div class="chatbot-wave"></div>
+</div>
+
+<!-- CHATBOT MODAL -->
+<div class="chatbot-modal" *ngIf="isChatbotOpen" [class.open]="isChatbotOpen">
+
+    <div class="chatbot-header">
+        <span>AI Health Assistant</span>
+        <button class="close-btn" (click)="closeChatbot()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <app-chatbot [isModal]="true"></app-chatbot>
+
+</div>

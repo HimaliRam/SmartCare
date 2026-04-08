@@ -1,0 +1,81 @@
+<section class="hospitals" id="hospitals">
+    <div class="hospitals-container">
+        <h2 class="section-title">Hospitals Near You</h2>
+
+        <!-- Location permission prompt -->
+        <div *ngIf="!locationEnabled" class="location-prompt">
+            <p>📍 Enable location to see nearby hospitals</p>
+            <button class="enable-location-btn"
+                    (click)="enableLocation()"
+                    [disabled]="loading">
+                {{ loading ? 'Detecting location...' : 'Enable Location' }}
+            </button>
+        </div>
+
+        <!-- Hospitals content -->
+        <div class="hospitals-content" [hidden]="!locationEnabled">
+
+            <!-- LEFT : MAP -->
+            <div class="map-preview">
+                <iframe width="100%"
+                        height="400"
+                        style="border-radius: 20px; border: none"
+                        loading="lazy"
+                        allowfullscreen
+                        [src]="mapUrl">
+                </iframe>
+            </div>
+
+            <!-- RIGHT : HOSPITALS -->
+            <div class="hospitals-right">
+
+                <!-- Loading -->
+                <div *ngIf="loading" class="loading-hint">
+                    📍 Finding nearby hospitals…
+                </div>
+
+                <!-- Hospital cards -->
+                <div class="hospitals-list">
+                    <div *ngFor="let hospital of firstThree; let i = index; trackBy: trackByHospital"
+                         class="hospital-card"
+                         [style.animation-delay]="(i * 0.1) + 's'">
+
+                        <div class="hospital-info">
+                            <h3 class="hospital-name">{{ hospital.name }}</h3>
+
+                            <div class="hospital-details">
+                                <span class="detail-item">
+                                    📍 {{
+                                hospital.distanceKm !== undefined
+                                ? (hospital.distanceKm | number:'1.1-1') + ' km'
+                                : 'N/A'
+                                    }}
+                                </span>
+
+                                <span class="detail-item">
+                                    ⭐ {{ hospital.rating && hospital.rating > 0 ? hospital.rating : 'N/A' }}
+                                </span>
+
+                                <span *ngIf="hospital.emergency" class="emergency-badge">
+                                    🚑 Emergency Available
+                                </span>
+                            </div>
+                        </div>
+
+                        <button class="view-details-btn" (click)="viewDetails(hospital)">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- View More ALWAYS BELOW -->
+                <button *ngIf="!loading && firstThree.length > 0"
+                        class="view-more-btn"
+                        (click)="viewMore()">
+                    View More
+                </button>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,74 @@
+<div class="details-container" *ngIf="hospital; else loading">
+
+    <!-- ❌ IMAGE SECTION REMOVED COMPLETELY -->
+
+    <!-- ================= TITLE ================= -->
+    <h1 class="hospital-title">
+        {{ hospital.name }}
+    </h1>
+
+    <!-- ================= DETAILS CARD ================= -->
+    <div class="details-card">
+
+        <!-- Distance -->
+        <p *ngIf="hospital.distanceKm !== undefined">
+            <strong>Distance:</strong>
+            📍 {{ hospital.distanceKm | number:'1.1-1' }} km
+        </p>
+
+        <!-- Rating -->
+        <p *ngIf="hospital.rating">
+            <strong>Rating:</strong>
+            ⭐ {{ hospital.rating }}
+        </p>
+
+        <!-- Address -->
+        <p *ngIf="hospital.address">
+            <strong>Address:</strong>
+            {{ hospital.address }}
+        </p>
+
+        <!-- Phone -->
+        <p *ngIf="hospital.phone; else noPhone">
+            <strong>Phone:</strong>
+            <a [href]="'tel:' + hospital.phone">{{ hospital.phone }}</a>
+        </p>
+
+        <ng-template #noPhone>
+            <p><strong>Phone:</strong> Not available</p>
+        </ng-template>
+
+        <!-- Description -->
+        <div *ngIf="hospital.description; else noDescription">
+            <p><strong>Description:</strong></p>
+            <p class="description">
+                {{ hospital.description }}
+            </p>
+        </div>
+
+        <ng-template #noDescription>
+            <p class="description muted">
+                No description available.
+            </p>
+        </ng-template>
+
+        <!-- Emergency -->
+        <p *ngIf="hospital.emergency" class="emergency">
+            🚑 Emergency Available
+        </p>
+
+    </div>
+
+    <!-- ================= BACK BUTTON ================= -->
+    <button class="back-btn" (click)="goBack()">
+        ← Back to Hospitals
+    </button>
+
+</div>
+
+<!-- ================= LOADING ================= -->
+<ng-template #loading>
+    <div class="loading">
+        Loading hospital details...
+    </div>
+</ng-template>

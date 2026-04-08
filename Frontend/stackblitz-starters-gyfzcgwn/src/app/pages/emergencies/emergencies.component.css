@@ -1,0 +1,424 @@
+/* ================= MAIN CONTAINER ================= */
+
+.emergency-container {
+  margin-top: 90px;
+  /* ↓ reduced */
+  padding: 40px 50px;
+  /* ↓ reduced */
+  min-height: auto;
+  /* ❌ remove extra height */
+
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fbff, #edf7f3);
+}
+
+
+/* ================= PAGE TITLE ================= */
+
+.page-title {
+  text-align: center;
+  margin-bottom: 35px;
+  /* ↓ reduced */
+}
+
+.page-title h1 {
+  font-size: 32px;
+  /* ↓ smaller */
+  font-weight: 800;
+  background: linear-gradient(90deg, #0d9488, #0f766e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-title p {
+  color: #64748b;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+
+/* ================= SPLIT LAYOUT ================= */
+
+.emergency-split {
+  display: flex;
+  gap: 30px;
+  /* ↓ reduced */
+  align-items: stretch;
+  flex-direction: row-reverse;
+}
+
+
+/* ================= LEFT PANEL ================= */
+
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #2ea79d, #97dfd9);
+  color: white;
+  padding: 40px;
+  /* ↓ reduced */
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-shadow: 0 20px 40px rgba(13, 148, 136, 0.2);
+}
+
+.left-panel h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+
+/* ================= HELPLINE BOX ================= */
+
+.helpline-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(8px);
+}
+
+.number {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+/* ================= SOS BUTTON ================= */
+
+.sos-btn {
+  background: white;
+  color: #0d9488;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sos-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ================= RIGHT PANEL ================= */
+
+.right-panel {
+  flex: 1;
+  background: white;
+  padding: 35px;
+  /* ↓ reduced */
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ================= FORM GRID ================= */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  /* ↓ tighter */
+}
+
+.form-grid input,
+.form-grid select {
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 13px;
+  background: #f9fafb;
+}
+
+.form-grid input:focus,
+.form-grid select:focus {
+  border-color: #0d9488;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.15);
+  background: white;
+}
+
+
+/* ================= BUTTON ================= */
+
+.submit-btn {
+  grid-column: span 2;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #49a59d, #61aaa4);
+  padding: 13px;
+  border-radius: 25px;
+  font-size: 14px;
+  border: none;
+}
+
+
+/* ================= INSTRUCTIONS SECTION ================= */
+
+.instructions-section {
+  margin-top: 60px;
+  /* ↓ reduced */
+  text-align: center;
+}
+
+.instructions-section h2 {
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #134e4a;
+}
+
+
+/* ================= CARDS ================= */
+
+.instruction-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  /* ↓ tighter */
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  /* ↓ reduced */
+  border-radius: 16px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 160px;
+  /* ✅ equal height */
+
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.08);
+  transition: 0.25s ease;
+}
+
+/* ICON */
+.card span {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+/* TITLE */
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+/* TEXT */
+.card p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(13, 148, 136, 0.15);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .emergency-split {
+    flex-direction: column;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-btn {
+    grid-column: span 1;
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
+
+/* -------- LARGE LAPTOP (1200px ↓) -------- */
+@media (max-width: 1200px) {
+
+  .emergency-container {
+    padding: 35px 30px;
+  }
+
+  .page-title h1 {
+    font-size: 28px;
+  }
+
+  .emergency-split {
+    gap: 20px;
+  }
+}
+
+/* -------- TABLET (992px ↓) -------- */
+@media (max-width: 992px) {
+
+  .emergency-container {
+    padding: 30px 20px;
+  }
+
+  .emergency-split {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    padding: 25px;
+  }
+
+  .left-panel h1 {
+    font-size: 24px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-btn {
+    grid-column: span 1;
+    width: 100%;
+  }
+
+  .instruction-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* -------- MOBILE (768px ↓) -------- */
+@media (max-width: 768px) {
+
+  .emergency-container {
+    padding: 25px 15px;
+  }
+
+  .page-title h1 {
+    font-size: 22px;
+  }
+
+  .page-title p {
+    font-size: 13px;
+  }
+
+  .left-panel {
+    text-align: center;
+    align-items: center;
+  }
+
+  .left-panel h1 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .helpline-box {
+    padding: 14px;
+  }
+
+  .number {
+    font-size: 18px;
+  }
+
+  .sos-btn {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .right-panel {
+    padding: 20px;
+  }
+
+  .form-grid input,
+  .form-grid select {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .submit-btn {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .instructions-section h2 {
+    font-size: 20px;
+  }
+
+  .instruction-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 18px;
+    min-height: auto;
+  }
+}
+
+/* -------- SMALL MOBILE (480px ↓) -------- */
+@media (max-width: 480px) {
+
+  .page-title h1 {
+    font-size: 18px;
+  }
+
+  .page-title p {
+    font-size: 12px;
+  }
+
+  .left-panel h1 {
+    font-size: 18px;
+  }
+
+  .number {
+    font-size: 16px;
+  }
+
+  .sos-btn {
+    padding: 10px;
+  }
+
+  .form-grid input,
+  .form-grid select {
+    font-size: 11px;
+  }
+
+  .submit-btn {
+    font-size: 12px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+}
+
+/* -------- LARGE SCREEN (1400px ↑) -------- */
+@media (min-width: 1400px) {
+  .emergency-container {
+    max-width: 1350px;
+    margin: auto;
+  }
+}

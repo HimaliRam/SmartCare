@@ -1,0 +1,172 @@
+<div class="signup-overlay">
+    <div class="signup-modal">
+
+        <!-- LEFT SIDE -->
+        <div class="signup-left">
+            <h2>Create <span>Account</span></h2>
+
+            <!-- ✅ FORM START -->
+            <form #signupForm="ngForm" (ngSubmit)="register()">
+
+                <div class="form-grid">
+
+                    <!-- NAME + MOBILE -->
+                    <div>
+                        <label>Full Name</label>
+                        <input type="text" name="name" [(ngModel)]="user.fullName" required pattern="^[A-Za-z ]{2,50}$"
+                            placeholder="Enter full name" />
+                    </div>
+
+                    <div>
+                        <label>Mobile</label>
+                        <input type="tel" name="mobile" [(ngModel)]="user.mobile" maxlength="10" inputmode="numeric"
+                            pattern="[0-9]*" (input)="limitMobile($event)" placeholder="Enter 10-digit mobile number" />
+                    </div>
+                    <!-- EMAIL + VERIFY -->
+                    <div class="email-group full">
+
+                        <label>Email</label>
+
+                        <div class="email-input-wrap">
+
+                            <input type="email" name="email" [(ngModel)]="user.email" [disabled]="isEmailVerified" />
+
+                            <button type="button" class="verify-btn" (click)="otpSent ? resendOtp() : sendOtp()"
+                                [disabled]="isSendingOtp || (otpSent && resendCooldown > 0)">
+
+                                <ng-container *ngIf="!otpSent">
+                                    Verify
+                                </ng-container>
+
+                                <ng-container *ngIf="otpSent">
+                                    {{ resendCooldown > 0 ? formatTime(resendCooldown) : 'Resend' }}
+                                </ng-container>
+
+                            </button>
+
+                        </div>
+
+                        <!-- ✅ SUCCESS MESSAGE BELOW EMAIL -->
+                        <p class="verified-text" *ngIf="isEmailVerified">
+                            ✅ Email verified
+                        </p>
+
+                    </div>
+
+                    <!-- STATUS -->
+                    <div class="full">
+                        <p class="success" *ngIf="emailStatus">{{ emailStatus }}</p>
+                        <p class="error" *ngIf="emailError">{{ emailError }}</p>
+                    </div>
+
+                    <!-- OTP -->
+                    <!-- OTP -->
+                    <!-- 🔥 OTP SECTION (PRO UI) -->
+                    <div *ngIf="otpSent" class="full otp-clean">
+
+                        <div class="otp-row">
+
+                            <input type="text" maxlength="6" [(ngModel)]="otp" name="otp" placeholder="Enter OTP"
+                                class="otp-input" />
+
+                            <button type="button" class="verify-btn small" (click)="verifyOtp()"
+                                [disabled]="isVerifyingOtp">
+
+                                {{ isVerifyingOtp ? 'Checking...' : 'Verify' }}
+
+                            </button>
+
+                        </div>
+
+                        <p class="success" *ngIf="otpSuccess">{{ otpSuccess }}</p>
+                        <p class="error" *ngIf="otpError">{{ otpError }}</p>
+
+                    </div>
+                    <!-- PASSWORD + GENDER -->
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" [(ngModel)]="user.password" />
+                    </div>
+
+                    <div>
+                        <label>Gender</label>
+                        <select name="gender" [(ngModel)]="user.gender">
+                            <option value="">Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+
+                    <!-- BIRTHDATE + AGE -->
+                    <div>
+                        <label>Birthdate</label>
+                        <input type="date" name="birthdate" [(ngModel)]="user.birthdate" (change)="validateBirthdate()"
+                            required />
+                    </div>
+
+                    <div>
+                        <label>Age</label>
+                        <input type="number" name="age" [(ngModel)]="user.age" readonly />
+                    </div>
+
+                    <!-- HEIGHT + WEIGHT -->
+                    <div>
+                        <label>Height</label>
+                        <input type="number" name="height" [(ngModel)]="user.height" />
+                    </div>
+
+                    <div>
+                        <label>Weight</label>
+                        <input type="number" name="weight" [(ngModel)]="user.weight" />
+                    </div>
+
+                    <!-- BLOOD -->
+                    <div class="full">
+                        <label>Blood Group</label>
+                        <select name="bloodGroup" [(ngModel)]="user.bloodGroup">
+                            <option value="">Select</option>
+                            <option *ngFor="let bg of bloodGroups">{{ bg }}</option>
+                        </select>
+                    </div>
+
+                    <!-- ADDRESS -->
+                    <div class="full">
+                        <label>Address</label>
+                        <textarea name="address" [(ngModel)]="user.address"></textarea>
+                    </div>
+                    <div class="error-box" *ngIf="registerError">
+                        <div class="error-icon">⚠</div>
+                        <div class="error-text">
+                            {{ registerError }}
+                        </div>
+                    </div>
+
+                    <!-- BUTTON -->
+                    <div class="full">
+                        <button type="submit" class="register-btn full-btn" [class.disabled-btn]="!isEmailVerified">
+                            Create Account
+                        </button>
+                    </div>
+                    <div class="full login-link">
+                        Already registered?
+                        <span (click)="goToLogin()">Login</span>
+                    </div>
+                </div>
+
+            </form>
+            <!--FORM END -->
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="signup-right">
+            <div class="illustration">
+                <img
+                    src="https://image2url.com/r2/default/images/1770984169107-889dac71-c6fe-4e97-b826-051f7ae5a232.png" />
+                <p>Your Health Partner</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>

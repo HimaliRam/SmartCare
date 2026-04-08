@@ -1,0 +1,173 @@
+.assistant-section {
+  padding: 5rem 2rem;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.assistant-card {
+  max-width: 1100px;
+  width: 100%;
+  background: #ecfdf5;
+  border-radius: 24px;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* Left */
+.assistant-info .tag {
+  color: #14b8a6;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.assistant-info h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.assistant-info p {
+  color: #374151;
+  line-height: 1.6;
+}
+
+.assistant-btn {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #14b8a6, #0ea5a4);
+  color: white;
+  border: none;
+  padding: 0.95rem 2rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.3);
+}
+
+/* 🔥 HOVER EFFECT */
+.assistant-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(20, 184, 166, 0.45);
+}
+
+/* 🔥 CLICK EFFECT */
+.assistant-btn:active {
+  transform: scale(0.97);
+}
+
+/* 🔥 SHINE ANIMATION */
+.assistant-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.2));
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.assistant-btn:hover::before {
+  left: 130%;
+}
+
+/* Right Chat */
+.assistant-chat {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat {
+  padding: 0.9rem 1.2rem;
+  border-radius: 14px;
+  max-width: 85%;
+}
+
+.chat.user {
+  align-self: flex-end;
+  background: #f3f4f6;
+}
+
+.chat.ai {
+  background: #14b8a6;
+  color: white;
+}
+
+.note {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+
+  .assistant-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .assistant-info h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+  .assistant-section {
+    padding: 4rem 1rem;
+  }
+
+  .assistant-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .assistant-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .assistant-info p {
+    font-size: 0.9rem;
+  }
+
+  .assistant-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .chat {
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+
+  .assistant-chat {
+    padding: 1rem;
+  }
+}
+
+/* LARGE SCREENS */
+@media (min-width: 1400px) {
+  .assistant-card {
+    max-width: 1300px;
+  }
+}

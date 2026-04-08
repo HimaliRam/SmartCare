@@ -1,0 +1,34 @@
+<section class="health-tips" id="health-tips">
+  <div class="health-tips-container">
+
+    <h2 class="section-title">Health Tips & Insights</h2>
+    <p class="section-subtitle">Stay informed about your health</p>
+
+    <div class="tips-grid">
+
+      <div
+        *ngFor="let tip of healthTips; let i = index"
+        class="tip-card"
+        [routerLink]="['/health-tip-details', tip.id]"
+        [style.animation-delay]="(i * 0.15) + 's'"
+      >
+
+        <div class="tip-icon" [style.background]="tip.color">
+          {{ tip.icon }}
+        </div>
+
+        <h3 class="tip-title">{{ tip.title }}</h3>
+
+        <p class="tip-description">
+          {{ tip.description }}
+        </p>
+
+        <button class="read-btn">
+          Read More →
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>

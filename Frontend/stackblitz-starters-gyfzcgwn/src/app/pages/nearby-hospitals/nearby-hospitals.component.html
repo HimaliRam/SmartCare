@@ -1,0 +1,32 @@
+<div class="hospital-container">
+  <h1 class="title">Nearby Hospitals</h1>
+  <p class="subtitle">Hospitals near your current location</p>
+
+  <div class="hospital-grid">
+    <div class="hospital-card" *ngFor="let hospital of hospitals; let i = index">
+      <!-- ❌ IMAGE REMOVED -->
+
+      <div class="hospital-content">
+        <h2>{{ hospital.name }}</h2>
+
+        <p class="distance">📍 {{ hospital.distance }} away</p>
+
+        <p class="rating">⭐ {{ hospital.rating }} / 5</p>
+
+        <p class="address">🏥 {{ hospital.address }}</p>
+
+        <button class="emergency-btn" [ngClass]="{
+            available: hospital.emergency,
+            'not-available': !hospital.emergency,
+            active: activeEmergencyIndex === i
+          }" (click)="hospital.emergency && activateEmergency(i)">
+          {{
+          hospital.emergency
+          ? 'Emergency Available'
+          : 'No Emergency'
+          }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

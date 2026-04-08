@@ -1,0 +1,18 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "SERVICES": "Our Services",
+    "DEPARTMENTS": "Departments",
+    "HOSPITALS": "Hospitals",
+    "TIPS": "Tips",
+    "ASSISTANT": "Health Assistant",
+    "LOGIN": "Login",
+    "EMERGENCY": "Emergency"
+  },
+
+  "MULTI_LANGUAGE": {
+    "TITLE": "Multi-language Support",
+    "SUBTITLE": "Access SmartCare in your preferred language",
+    "DESCRIPTION": "SmartCare provides seamless healthcare access in multiple languages."
+  }
+}

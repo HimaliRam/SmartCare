@@ -1,0 +1,276 @@
+/* FULL SECTION */
+
+.doctor-section {
+  padding: 60px 5%;
+  background: linear-gradient(135deg, #f4f7ff, #eef3ff);
+}
+
+/* HEADER INLINE */
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-top: 45px;
+  color:#4fa099 ;
+}
+
+/* SEARCH */
+.search-input {
+  padding: 12px 18px;
+  width: 320px;
+  margin-top: 50px;
+  border-radius: 10px;
+  border: 1px solid #0bbfa0;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* When clicked / focused */
+.search-input:focus {
+  border-color: #0aa2c0;
+  box-shadow: 0 0 0 3px rgba(10, 162, 192, 0.15);
+}
+
+/* GRID */
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* CARD */
+
+.doctor-card {
+  display: flex;
+  align-items: center;
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  opacity: 0;
+
+  transform: translateY(50px);
+
+  transition: all 0.8s ease;
+}
+
+/* SCROLL SHOW */
+
+.doctor-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* IMAGE WRAPPER */
+
+.doctor-image-wrapper {
+  width: 140px;
+  height: 190px;
+
+  padding: 10px;
+}
+
+/* IMAGE STYLE */
+
+.doctor-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+}
+
+/* CONTENT */
+/* ========================= */
+/* IMPROVED DOCTOR INFO UI  */
+/* ========================= */
+
+/* Doctor name */
+.doctor-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+/* Degree styling */
+.doctor-info .degree {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0bbfa0;
+  margin-bottom: 10px;
+}
+
+/* All info rows */
+.doctor-info p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 14.5px;
+  color: #444;
+
+  margin: 4px 0;
+
+  line-height: 1.4;
+}
+
+/* Icon spacing */
+.doctor-info p span {
+  font-size: 16px;
+}
+
+/* Experience highlight */
+.doctor-info p:nth-child(4) {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Specialization highlight */
+.doctor-info p:nth-child(5) {
+  color: #6a5acd;
+  font-weight: 500;
+}
+
+/* Improve content spacing */
+.doctor-info {
+  flex: 1;
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Improve button spacing */
+.doctor-info .btn {
+  margin-top: 14px;
+  width: fit-content;
+}
+
+/* Improve card vertical alignment */
+.doctor-card {
+  align-items: center;
+  min-height: 190px;
+}
+
+/* Improve image alignment */
+.doctor-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Improve image look */
+.doctor-image-wrapper img {
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.doctor-card:hover img {
+  transform: scale(1.05);
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.btn {
+  background: linear-gradient(135deg, #0bbfa0, #0aa2c0);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(11, 191, 160, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect */
+.btn:hover {
+  background: linear-gradient(135deg, #0aa2c0, #0bbfa0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 191, 160, 0.4);
+}
+
+/* Click effect */
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 8px rgba(11, 191, 160, 0.3);
+}
+
+/* Optional: full width button */
+.btn.full-width {
+  width: 100%;
+}
+
+/* Optional: large button */
+.btn.large {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+/* LEFT ANIMATION */
+
+.left.show {
+  animation: slideLeft 1s;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* RIGHT ANIMATION */
+
+.right.show {
+  animation: slideRight 1s;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .doctor-grid {
+    grid-template-columns: 1fr;
+  }
+}
