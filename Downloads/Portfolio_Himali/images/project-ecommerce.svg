@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="ShopEase E-Commerce preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="50%" stop-color="#171a35"/>
+      <stop offset="100%" stop-color="#120924"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#121c31"/>
+      <stop offset="100%" stop-color="#0d1727"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#bc64f6"/>
+      <stop offset="100%" stop-color="#42d2ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#bc64f6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#bc64f6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="600" fill="url(#bg)"/>
+  <rect width="900" height="600" fill="url(#glow)"/>
+
+  <rect x="44" y="44" width="812" height="512" rx="32" fill="rgba(7,17,29,0.92)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="78" y="82" width="744" height="444" rx="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+
+  <rect x="110" y="122" width="260" height="24" rx="12" fill="#42d2ff" opacity="0.92"/>
+  <rect x="110" y="166" width="186" height="12" rx="6" fill="#dbeafe" opacity="0.65"/>
+
+  <rect x="110" y="210" width="210" height="210" rx="28" fill="url(#card)" stroke="rgba(255,255,255,0.10)"/>
+  <rect x="140" y="244" width="150" height="18" rx="9" fill="#bc64f6" opacity="0.9"/>
+  <rect x="140" y="280" width="118" height="10" rx="5" fill="#dbeafe" opacity="0.7"/>
+  <rect x="140" y="304" width="102" height="10" rx="5" fill="#dbeafe" opacity="0.45"/>
+  <rect x="140" y="336" width="84" height="10" rx="5" fill="#dbeafe" opacity="0.45"/>
+  <path d="M210 376c20-48 66-78 118-78 38 0 72 18 98 48" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+
+  <rect x="350" y="210" width="440" height="88" rx="24" fill="url(#card)" stroke="rgba(255,255,255,0.10)"/>
+  <rect x="382" y="245" width="140" height="18" rx="9" fill="#42d2ff" opacity="0.92"/>
+  <rect x="382" y="276" width="104" height="10" rx="5" fill="#dbeafe" opacity="0.55"/>
+
+  <rect x="350" y="322" width="440" height="188" rx="28" fill="url(#card)" stroke="rgba(255,255,255,0.10)"/>
+  <rect x="386" y="358" width="160" height="110" rx="18" fill="#0f172a" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="566" y="358" width="180" height="18" rx="9" fill="#bc64f6" opacity="0.95"/>
+  <rect x="566" y="392" width="146" height="10" rx="5" fill="#dbeafe" opacity="0.65"/>
+  <rect x="566" y="418" width="104" height="10" rx="5" fill="#dbeafe" opacity="0.45"/>
+  <rect x="566" y="444" width="126" height="10" rx="5" fill="#dbeafe" opacity="0.45"/>
+  <rect x="386" y="490" width="148" height="12" rx="6" fill="#42d2ff" opacity="0.85"/>
+
+  <rect x="640" y="420" width="120" height="52" rx="16" fill="url(#accent)"/>
+  <text x="678" y="452" fill="#07111d" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Buy now</text>
+
+  <text x="110" y="500" fill="#f3f8ff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">ShopEase E-Commerce</text>
+  <text x="110" y="542" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="18">Modern shopping preview with cart, categories, and checkout flow</text>
+</svg>

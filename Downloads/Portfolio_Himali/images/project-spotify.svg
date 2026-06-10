@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="Spotify Clone preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111d"/>
+      <stop offset="50%" stop-color="#13253d"/>
+      <stop offset="100%" stop-color="#1b0f2f"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#42d2ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#42d2ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#42d2ff"/>
+      <stop offset="100%" stop-color="#bc64f6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" fill="url(#bg)"/>
+  <rect width="900" height="600" fill="url(#glow)"/>
+
+  <rect x="40" y="40" width="820" height="520" rx="32" fill="url(#panel)" stroke="rgba(255,255,255,0.18)"/>
+  <rect x="76" y="80" width="748" height="440" rx="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+
+  <rect x="108" y="130" width="180" height="10" rx="5" fill="#42d2ff"/>
+  <rect x="108" y="158" width="126" height="10" rx="5" fill="#7dd3fc" opacity="0.6"/>
+  <rect x="108" y="206" width="136" height="84" rx="18" fill="#0f172a" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="262" y="206" width="136" height="84" rx="18" fill="#111827" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="416" y="206" width="136" height="84" rx="18" fill="#111827" stroke="rgba(255,255,255,0.08)"/>
+
+  <circle cx="176" cy="248" r="28" fill="url(#accent)" opacity="0.95"/>
+  <path d="M166 236h20v24h-20z" fill="#07111d"/>
+  <rect x="151" y="284" width="50" height="6" rx="3" fill="#e5eefb" opacity="0.75"/>
+
+  <rect x="108" y="330" width="444" height="18" rx="9" fill="rgba(255,255,255,0.08)"/>
+  <rect x="108" y="364" width="332" height="18" rx="9" fill="rgba(255,255,255,0.08)"/>
+  <rect x="108" y="398" width="392" height="18" rx="9" fill="rgba(255,255,255,0.08)"/>
+
+  <rect x="600" y="130" width="190" height="258" rx="28" fill="#0b1220" stroke="rgba(255,255,255,0.10)"/>
+  <rect x="630" y="172" width="132" height="14" rx="7" fill="#42d2ff"/>
+  <rect x="630" y="202" width="96" height="10" rx="5" fill="#e5eefb" opacity="0.65"/>
+  <rect x="630" y="242" width="130" height="10" rx="5" fill="#e5eefb" opacity="0.45"/>
+  <rect x="630" y="272" width="104" height="10" rx="5" fill="#e5eefb" opacity="0.45"/>
+  <rect x="630" y="306" width="84" height="10" rx="5" fill="#e5eefb" opacity="0.45"/>
+
+  <rect x="600" y="420" width="190" height="68" rx="20" fill="url(#accent)" opacity="0.95"/>
+  <circle cx="646" cy="454" r="18" fill="#07111d"/>
+  <path d="M640 445h12v18h-12z" fill="#42d2ff"/>
+  <rect x="684" y="438" width="78" height="8" rx="4" fill="#07111d" opacity="0.75"/>
+  <rect x="684" y="454" width="56" height="8" rx="4" fill="#07111d" opacity="0.55"/>
+
+  <text x="108" y="500" fill="#f3f8ff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Spotify Clone</text>
+  <text x="108" y="542" fill="#cfe0ff" font-family="Arial, Helvetica, sans-serif" font-size="18">Responsive music-player UI preview • ready for your real screenshot</text>
+</svg>
